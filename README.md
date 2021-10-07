@@ -2,7 +2,7 @@
 
 Simple example to show how x64 Assembler and Raylib work together
 
-## Compilation
+## Compiling
 
 Run the `compile.sh` script to compile for Linux or `compile.bat` for Windows.
 
