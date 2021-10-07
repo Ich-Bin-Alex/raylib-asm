@@ -1,7 +1,5 @@
 .att_syntax noprefix
 
-.set _LINUX_, 1
-
 .ifdef _LINUX_
 
 	.set par1,    rdi
@@ -20,6 +18,14 @@
 	.set par4.32, ecx
 	.set par4.16, cx
 	.set par4.8,  cl
+	.set par5,    r8
+	.set par5.32, r8d
+	.set par5.16, r8w
+	.set par5.8,  r8b
+	.set par6,    r9
+	.set par6.32, r9d
+	.set par6.16, r9w
+	.set par6.8,  r9b
 	
 	.macro START
 		.global main
@@ -53,6 +59,14 @@
 	.set par4.32, r9d
 	.set par4.16, r9w
 	.set par4.8,  r9b
+	# .set par5,    32(rsp)
+	# .set par5.32, 32(rsp)
+	# .set par5.16, 32(rsp)
+	# .set par5.8,  32(rsp)
+	# .set par6,    40(rsp)
+	# .set par6.32, 40(rsp)
+	# .set par6.16, 40(rsp)
+	# .set par6.8,  40(rsp)
 
 	.macro START
 		.global main
@@ -63,7 +77,8 @@
 	.endm
 
 	.macro EXIT
-		ret
+		xor par1.32,par1.32
+		call ExitProcess
 	.endm
 
 .endif

@@ -9,15 +9,17 @@ START
 	mainLoop:
 		call BeginDrawing
 
-		mov $0xffffffff, par1.32
-		call ClearBackground
-
 		mov $512-64, r15d
 		circleLoop:
 			mov r15d, par1.32
 			mov $512/2, par2.32
-			mov $0xff00b0ff, par3.32
-			movss CircleRadius(rip), xmm0
+			.ifdef _LINUX_
+				movss CircleRadius(rip), xmm0
+				mov $0xff0080ff, par3.32
+			.else
+				movss CircleRadius(rip), xmm2
+				mov $0xff0080ff, par4.32
+			.endif
 			call DrawCircle
 			sub $64, r15d
 			jnz circleLoop
@@ -27,6 +29,8 @@ START
 		call WindowShouldClose
 		test eax, eax
 		jz mainLoop
+
+	call CloseWindow
 EXIT
 
 WindowTitle: .string "Hello from Raylib & x64 Asm :)"

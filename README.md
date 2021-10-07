@@ -4,8 +4,10 @@ Simple example to show how x64 Assembler and Raylib work together
 
 ## Compilation
 
-Run the `compile.sh` script. You need to have Raylib installed.
+Run the `compile.sh` script to compile for Linux or `compile.bat` for Windows.
 
-The code works only on Linux at the moment. To make it work on Windows, you need to change the `tools.asm` file and write your own compile script.
+Be sure to have Raylib installed: https://github.com/raysan5/raylib
+
+When you are on Windows, you need to have MinGW installed aswell.
 
 ![Image](https://github.com/IchMagBier/raylib-asm/blob/main/screenshot.png)

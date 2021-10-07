@@ -1,2 +1,6 @@
-libraylib.a
+game.exe
 game
+compile-windows.sh
+libraylib.a
+raylib-win.dll
+raylib.dll
